@@ -106,7 +106,7 @@ namespace FunBooksAndVideos.WebApi.Controllers
             if (isExist == null || !result.IsValid)
             {
                 _logger.LogError("Bad Update Request: Time" + DateTime.Now);
-                return BadRequest();
+                return BadRequest("Either Customer Id to Update not exists:  Enter valid Id Or input Validation error" +result.Errors);
             }
             return Ok(await _mediator.Send(new UpdateCustomerCommand { Id = id, Name = customerRequest.Name, Email = customerRequest.Email, Phone = customerRequest.Phone }));
         }
