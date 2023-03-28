@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FunBooksAndVideos.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:FunBooksAndVideos.WebApi.Controllers.CustomerController.Create(FunBooksAndVideos.Service.Resources.CustomerRequest)">
+            <summary>
+            Creates a New Customer.
+            </summary>
+            <param name="customerRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FunBooksAndVideos.WebApi.Controllers.CustomerController.GetAll">
+            <summary>
+            Gets all Customers.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FunBooksAndVideos.WebApi.Controllers.CustomerController.GetById(System.Int32)">
+            <summary>
+            Gets Customer Entity by Id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FunBooksAndVideos.WebApi.Controllers.CustomerController.Delete(System.Int32)">
+            <summary>
+            Deletes Customer Entity based on Id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FunBooksAndVideos.WebApi.Controllers.CustomerController.Update(System.Int32,FunBooksAndVideos.Service.Resources.CustomerRequest)">
+            <summary>
+            Updates the Customer Entity based on Id.
+            </summary>
+            <param name="id"></param>
+            <param name="customerRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FunBooksAndVideos.WebApi.Controllers.MembershipController.Create(FunBooksAndVideos.Service.Resources.MembershipRequest)">
+            <summary>
+            Creates a New Membership.
+            </summary>
+            <param name="membershipRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FunBooksAndVideos.WebApi.Controllers.MembershipController.GetAll">
+            <summary>
+            Gets all Memberships.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FunBooksAndVideos.WebApi.Controllers.MembershipController.GetById(System.Int32)">
+            <summary>
+            Gets Membership Entity by Id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FunBooksAndVideos.WebApi.Controllers.MembershipController.Delete(System.Int32)">
+            <summary>
+            Deletes Membership Entity based on Id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FunBooksAndVideos.WebApi.Controllers.MembershipController.Update(System.Int32,FunBooksAndVideos.Service.Resources.MembershipRequest)">
+            <summary>
+            Updates the Membership Entity based on Id.
+            </summary>
+            <param name="id"></param>
+            <param name="membershipRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FunBooksAndVideos.WebApi.Controllers.OrderController.Create(FunBooksAndVideos.Service.Resources.OrderRequest)">
+            <summary>
+            Creates a New Order.
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FunBooksAndVideos.WebApi.Controllers.OrderController.GetAll">
+            <summary>
+            Gets all Orders.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FunBooksAndVideos.WebApi.Controllers.OrderController.GetById(System.Int32)">
+            <summary>
+            Gets Order Entity by Id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FunBooksAndVideos.WebApi.Controllers.OrderController.Delete(System.Int32)">
+            <summary>
+            Deletes Order Entity based on Id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FunBooksAndVideos.WebApi.Controllers.ProductController.Create(FunBooksAndVideos.Service.Resources.ProductRequest)">
+            <summary>
+            Creates a New Product.
+            </summary>
+            <param name="productRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FunBooksAndVideos.WebApi.Controllers.ProductController.GetAll">
+            <summary>
+            Gets all Products.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FunBooksAndVideos.WebApi.Controllers.ProductController.GetById(System.Int32)">
+            <summary>
+            Gets Product Entity by Id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FunBooksAndVideos.WebApi.Controllers.ProductController.Delete(System.Int32)">
+            <summary>
+            Deletes Product Entity based on Id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

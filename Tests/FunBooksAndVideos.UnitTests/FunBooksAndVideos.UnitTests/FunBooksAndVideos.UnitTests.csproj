@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+    <PackageReference Include="Moq.EntityFrameworkCore" Version="3.0.0.4" />
+    <PackageReference Include="NUnit" Version="3.13.3" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
+    <PackageReference Include="NUnit.Analyzers" Version="3.3.0" />
+    <PackageReference Include="coverlet.collector" Version="3.1.2" />
+    <PackageReference Include="Moq" Version="4.18.4" />
+    
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\FunBooksAndVideos.Core\FunBooksAndVideos.Core.csproj" />
+    <ProjectReference Include="..\..\..\FunBooksAndVideos.Infrastructure\FunBooksAndVideos.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\..\FunBooksAndVideos.Service\FunBooksAndVideos.Service.csproj" />
+    <ProjectReference Include="..\..\..\FunBooksAndVideos.WebApi\FunBooksAndVideos.WebApi.csproj" />
+  </ItemGroup>
+
+ 
+</Project>
