@@ -26,9 +26,7 @@ namespace FunBooksAndVideos.UnitTests
         public void Setup()
         {
             _mockMediator = new Mock<IMediator>();
-
             _mockLogger = new Mock<Infrastructure.Logging.ILogger>();
-
             _mockMemoryCache = new Mock<IMemoryCache>();
             var mockCacheEntry = new Mock<ICacheEntry>();
 
@@ -63,7 +61,7 @@ namespace FunBooksAndVideos.UnitTests
            .ReturnsAsync(1)
            .Verifiable("Send Success");
 
-            _controller = new CustomerController(_mockLogger.Object, _mockMemoryCache.Object, _mockMediator.Object);
+           _controller = new CustomerController(_mockLogger.Object, _mockMemoryCache.Object, _mockMediator.Object);
         }
 
         [Test]
@@ -75,13 +73,9 @@ namespace FunBooksAndVideos.UnitTests
                 Email = "Customer@testmail.com",
                 Phone = "000-0000-0000"
             };
-
             var actionResult = _controller.Create(createCustomerReq);
-
             _mockMediator.Verify(x => x.Send(It.IsAny<CreateCustomerCommand>(), It.IsAny<CancellationToken>()), Times.Once());
-
             var okResult = actionResult.Result as ObjectResult;
-
             // Assert
             Assert.IsNotNull(okResult);
             Assert.That(okResult.StatusCode, Is.EqualTo(200));
@@ -96,13 +90,9 @@ namespace FunBooksAndVideos.UnitTests
                 Email = "wrong_mail_format",
                 Phone = "000-0000-0000"
             };
-
             var actionResult = _controller.Create(createCustomerReq);
-
             _mockMediator.Verify(x => x.Send(It.IsAny<CreateCustomerCommand>(), It.IsAny<CancellationToken>()), Times.Never());
-
             var badResult = actionResult.Result as ObjectResult;
-
             // Assert
             Assert.IsNotNull(badResult);
             Assert.That(badResult.StatusCode, Is.EqualTo(400));
@@ -112,11 +102,8 @@ namespace FunBooksAndVideos.UnitTests
         public void Test_GetAll_Customer_Should_Return_with_Success_Status()
         {
             var actionResult = _controller.GetAll();
-
             _mockMediator.Verify(x => x.Send(It.IsAny<GetAllCustomersQuery>(), It.IsAny<CancellationToken>()), Times.Once());
-
             var okResult = actionResult.Result as ObjectResult;
-
             // Assert
             Assert.IsNotNull(okResult);
             Assert.That(okResult.StatusCode, Is.EqualTo(200));
@@ -126,7 +113,6 @@ namespace FunBooksAndVideos.UnitTests
         public void Test_Get_Customer_Should_Return_with_Success_Status()
         {
             var actionResult = _controller.GetById(1);
-
             _mockMediator.Verify(x => x.Send(It.IsAny<GetCustomerByIdQuery>(), It.IsAny<CancellationToken>()), Times.Once());
             var okResult = actionResult.Result as ObjectResult;
             // Assert
@@ -138,7 +124,6 @@ namespace FunBooksAndVideos.UnitTests
         public void Test_Delete_Customer_Should_Return_with_Success_Status()
         {
             var actionResult = _controller.Delete(1);
-
             _mockMediator.Verify(x => x.Send(It.IsAny<DeleteCustomerByIdCommand>(), It.IsAny<CancellationToken>()), Times.Once());
             var okResult = actionResult.Result as ObjectResult;
             // Assert
@@ -155,13 +140,9 @@ namespace FunBooksAndVideos.UnitTests
                 Email = "tets@test.com",
                 Phone = "23213213"
             };
-
             var actionResult = _controller.Update(0, updateCustomerReq);
-
             _mockMediator.Verify(x => x.Send(It.IsAny<UpdateCustomerCommand>(), It.IsAny<CancellationToken>()), Times.Once());
-
             var okResult = actionResult.Result as ObjectResult;
-
             // Assert
             Assert.That(okResult, Is.Not.Null);
             Assert.That(okResult.StatusCode, Is.EqualTo(200));

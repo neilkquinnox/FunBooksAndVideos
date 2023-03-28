@@ -33,7 +33,6 @@ namespace FunBooksAndVideos.UnitTests.Queries
             var query = new GetCustomerByIdQuery { Id = 1 };
             var mockMapper = new Mock<IMapper>();
             mockMapper.Setup(m => m.Map<Core.Models.CustomerModel>(It.IsAny<CustomerEntity>())).Returns(new Core.Models.CustomerModel { Id = "1" });
-
             var handler = new GetCustomerByIdQueryHandler(_mockDbContext.Object, mockMapper.Object);
             var result = await handler.Handle(query, CancellationToken.None);
             Assert.Multiple(() =>

@@ -21,9 +21,7 @@ namespace FunBooksAndVideos.UnitTests.Commands
         public void Setup()
         {
             _mockDbContext = new Mock<IGenericRepository<CustomerEntity>>();
-
             _mockDbSetCustomers = new Mock<DbSet<CustomerEntity>>();
-
             var customerData = new List<CustomerEntity> { new CustomerEntity
             {
                 Id = "1",
@@ -36,8 +34,9 @@ namespace FunBooksAndVideos.UnitTests.Commands
             _mockDbSetCustomers.As<IAsyncEnumerable<CustomerEntity>>()
                 .Setup(x => x.GetAsyncEnumerator(default))
                 .Returns(new TestAsyncEnumerator<CustomerEntity>(customerData.GetEnumerator()));
+
             _mockDbSetCustomers.As<IQueryable<CustomerEntity>>()
-            .Setup(m => m.Provider)
+                .Setup(m => m.Provider)
                 .Returns(new TestAsyncQueryProvider<CustomerEntity>(customerData.Provider));
 
             _mockDbSetCustomers.As<IQueryable<CustomerEntity>>().Setup(m => m.Expression).Returns(customerData.Expression);
@@ -54,7 +53,6 @@ namespace FunBooksAndVideos.UnitTests.Commands
                 Email = "Customer@testmail.com",
                 Phone = "000-0000-0000"
             };
-
             var handler = new CreateCustomerCommandHandler(_mockDbContext.Object);
             var result = await handler.Handle(createCustomerCommand, CancellationToken.None);
             Assert.NotNull(result);
@@ -65,7 +63,6 @@ namespace FunBooksAndVideos.UnitTests.Commands
         public async Task Test_DeleteCustomerByIdCommand_Should_Delete_Customer()
         {
             var command = new DeleteCustomerByIdCommand { Id = 1 };
-
             var handler = new DeleteCustomerByIdCommandHandler(_mockDbContext.Object);
             var result = await handler.Handle(command, CancellationToken.None);
             Assert.NotNull(result);
@@ -80,7 +77,6 @@ namespace FunBooksAndVideos.UnitTests.Commands
         public async Task Test_UpdateCustomerCommandHandler_Should_Update_Customer()
         {
             var command = new UpdateCustomerCommand { Id = 1 };
-
             var handler = new UpdateCustomerCommandHandler(_mockDbContext.Object);
             var result = await handler.Handle(command, CancellationToken.None);
             Assert.Multiple(() =>
