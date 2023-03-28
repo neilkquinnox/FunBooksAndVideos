@@ -28,7 +28,7 @@ namespace FunBooksAndVideos.WebApi.Controllers
         /// <summary>
         /// Creates a New Order.
         /// </summary>
-        /// <param name="command"></param>
+        /// <param name="orderRequest"></param>
         /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Create(OrderRequest orderRequest)
@@ -39,7 +39,7 @@ namespace FunBooksAndVideos.WebApi.Controllers
             {
                 return BadRequest(result.Errors);
             }
-            return Ok(await _mediator.Send(new OrderRequest { Customer_ID = orderRequest.Customer_ID, Date = orderRequest.Date, orderProducts = orderRequest.orderProducts }));
+            return Ok(await _mediator.Send(new CreateOrderCommand { Customer_ID = orderRequest.Customer_ID, Date = orderRequest.Date, orderProducts = orderRequest.orderProducts }));
         }
 
         /// <summary>

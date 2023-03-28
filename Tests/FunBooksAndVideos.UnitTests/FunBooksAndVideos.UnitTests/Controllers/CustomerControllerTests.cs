@@ -32,7 +32,7 @@ namespace FunBooksAndVideos.UnitTests
             _mockMemoryCache = new Mock<IMemoryCache>();
             var mockCacheEntry = new Mock<ICacheEntry>();
 
-            string? keyPayload = null;
+            string keyPayload = null;
             _mockMemoryCache
              .Setup(mc => mc.CreateEntry(It.IsAny<object>()))
              .Callback((object k) => keyPayload = (string)k)

@@ -78,7 +78,7 @@
             <summary>
             Creates a New Order.
             </summary>
-            <param name="command"></param>
+            <param name="orderRequest"></param>
             <returns></returns>
         </member>
         <member name="M:FunBooksAndVideos.WebApi.Controllers.OrderController.GetAll">

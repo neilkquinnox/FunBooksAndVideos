@@ -9,7 +9,6 @@ namespace FunBooksAndVideos.Infrastructure.Repository
      where T : class, IEntity
     {
         private readonly DatabaseContext _databaseContext;
-        private readonly DbSet<T> _dbSet;
 
         public GenericRepository(DatabaseContext databaseContext)
 
