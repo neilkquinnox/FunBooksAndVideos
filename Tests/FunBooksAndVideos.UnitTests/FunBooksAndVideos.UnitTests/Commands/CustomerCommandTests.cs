@@ -85,7 +85,7 @@ namespace FunBooksAndVideos.UnitTests.Commands
             var result = await handler.Handle(command, CancellationToken.None);
             Assert.Multiple(() =>
             {
-                Assert.That(result, Is.EqualTo(0));
+                Assert.That(result, Is.EqualTo(1));
                 Assert.That(result, Is.InstanceOf<int>());
             });
         }

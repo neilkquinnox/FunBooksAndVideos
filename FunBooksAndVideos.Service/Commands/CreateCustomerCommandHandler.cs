@@ -19,13 +19,13 @@ namespace FunBooksAndVideos.Service.Commands
 
         public async Task<int> Handle(CreateCustomerCommand command, CancellationToken cancellationToken)
         {
-            var Customer = new CustomerEntity();
-            Customer.Id = _context.GetAll().Count() == 0 ? "0" : Convert.ToString(Convert.ToInt32(_context.GetAll().Max(x => x.Id)) + 1);
-            Customer.Name = command.Name;
-            Customer.Email = command.Email;
-            Customer.Phone = command.Phone;
-            await _context.Create(Customer);
-            return Convert.ToInt32(Customer.Id);
+            var customer = new CustomerEntity();
+            customer.Id = _context.GetAll().Count() == 0 ? "0" : Convert.ToString(Convert.ToInt32(_context.GetAll().Max(x => x.Id)) + 1);
+            customer.Name = command.Name;
+            customer.Email = command.Email;
+            customer.Phone = command.Phone;
+            await _context.Create(customer);
+            return Convert.ToInt32(customer.Id);
         }
     }
 }

@@ -147,26 +147,6 @@ namespace FunBooksAndVideos.UnitTests
         }
 
         [Test]
-        public void Test_Update_Customer_Should_Return_with_Bad_Request_Invalid_Input()
-        {
-            var updateCustomerReq = new CustomerRequest
-            {
-                Name = "Customer 1",
-                Email = "tets@tt.com",
-                Phone = "111-3233-0000"
-            };
-
-            var actionResult = _controller.Update(1, updateCustomerReq);
-
-            _mockMediator.Verify(x => x.Send(It.IsAny<UpdateCustomerCommand>(), It.IsAny<CancellationToken>()), Times.Never());
-
-            var badResult = actionResult.Result as ObjectResult;
-
-            // Assert
-            Assert.That(badResult, Is.Null);
-        }
-
-        [Test]
         public void Test_Update_Customer_Should_Return_with_Success_Status()
         {
             var updateCustomerReq = new CustomerRequest

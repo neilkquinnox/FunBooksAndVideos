@@ -99,12 +99,16 @@ namespace FunBooksAndVideos.WebApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, CustomerRequest customerRequest)
         {
-            if (id != customerRequest.Id)
+            CreateCustomerValidator validator = new CreateCustomerValidator();
+            var result = validator.Validate(customerRequest);
+
+            var isExist = await _mediator.Send(new GetCustomerByIdQuery { Id = id });
+            if (isExist == null || !result.IsValid)
             {
                 _logger.LogError("Bad Update Request: Time" + DateTime.Now);
                 return BadRequest();
             }
-            return Ok(await _mediator.Send(new UpdateCustomerCommand { Id = customerRequest.Id, Name = customerRequest.Name, Email = customerRequest.Email, Phone = customerRequest.Phone }));
+            return Ok(await _mediator.Send(new UpdateCustomerCommand { Id = id, Name = customerRequest.Name, Email = customerRequest.Email, Phone = customerRequest.Phone }));
         }
     }
 }
