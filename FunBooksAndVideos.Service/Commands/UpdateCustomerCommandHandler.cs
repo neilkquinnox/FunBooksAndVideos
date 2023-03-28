@@ -22,6 +22,7 @@ namespace FunBooksAndVideos.Service.Commands
             customerObj.Name = command.Name;
             customerObj.Email = command.Email;
             customerObj.Phone = command.Phone;
+            customerObj.Id = command.Id.ToString();
 
             await _context.Update(command.Id, customerObj);
             return Convert.ToInt32(customerObj.Id);
