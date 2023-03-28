@@ -22,6 +22,7 @@ namespace FunBooksAndVideos.Service.Commands
             membershipObj.Name = command.Name;
             membershipObj.Description = command.Description;
             membershipObj.Price = command.Price;
+            membershipObj.Id = command.Id.ToString();
             await _context.Update(command.Id, membershipObj);
             return Convert.ToInt32(membershipObj.Id);
         }

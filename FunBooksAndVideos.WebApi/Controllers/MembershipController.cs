@@ -95,7 +95,7 @@ namespace FunBooksAndVideos.WebApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, MembershipRequest membershipRequest)
         {
-            return Ok(await _mediator.Send(new UpdateMembershipCommand { Name = membershipRequest.Name, Description = membershipRequest.Description, Price = membershipRequest.Price }));
+            return Ok(await _mediator.Send(new UpdateMembershipCommand { Id = id, Name = membershipRequest.Name, Description = membershipRequest.Description, Price = membershipRequest.Price }));
         }
     }
 }
