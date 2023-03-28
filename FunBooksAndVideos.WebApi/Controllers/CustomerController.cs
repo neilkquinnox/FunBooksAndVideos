@@ -101,7 +101,6 @@ namespace FunBooksAndVideos.WebApi.Controllers
         {
             CreateCustomerValidator validator = new CreateCustomerValidator();
             var result = validator.Validate(customerRequest);
-
             var isExist = await _mediator.Send(new GetCustomerByIdQuery { Id = id });
             if (isExist == null || !result.IsValid)
             {
